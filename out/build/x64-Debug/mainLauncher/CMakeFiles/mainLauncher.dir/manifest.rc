@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/mainLauncher/CMakeFiles/mainLauncher.dir/embed.manifest"

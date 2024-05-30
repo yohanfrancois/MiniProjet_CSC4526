@@ -1,0 +1,364 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      The system is: Windows - 10.0.22621 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: D:/visual studio/VC/Tools/MSVC/14.39.33519/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Compilateur d'optimisation Microsoft (R) C/C++ version 19.39.33523 pour x64
+      Copyright (C) Microsoft Corporation. Tous droits réservés.
+      
+      CMakeCXXCompilerId.cpp
+      Microsoft (R) Incremental Linker Version 14.39.33523.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCXXCompilerId.exe 
+      CMakeCXXCompilerId.obj 
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/3.28.0-msvc1/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:1182 (message)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:247 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        main.c
+        Remarque : inclusion du fichier :  D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Remarque : inclusion du fichier :  "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-dhz4m5"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-dhz4m5"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-dhz4m5'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_568df
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo /TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_568df.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_568df.dir\\ /FS -c "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_568df.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_568df.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_568df.exe /implib:cmTC_568df.lib /pdb:cmTC_568df.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "out/build/x64-Debug/_deps/sfml-src/CMakeLists.txt:45 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: D:/visual studio/VC/Tools/MSVC/14.39.33519/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Compilateur d'optimisation Microsoft (R) C/C++ version 19.39.33523 pour x64
+      Copyright (C) Microsoft Corporation. Tous droits réservés.
+      
+      CMakeCCompilerId.c
+      Microsoft (R) Incremental Linker Version 14.39.33523.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCCompilerId.exe 
+      CMakeCCompilerId.obj 
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/3.28.0-msvc1/CompilerIdC/CMakeCCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:1182 (message)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:247 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "out/build/x64-Debug/_deps/sfml-src/CMakeLists.txt:45 (project)"
+    message: |
+      Detecting C compiler /showIncludes prefix:
+        main.c
+        Remarque : inclusion du fichier :  D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Remarque : inclusion du fichier :  "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "out/build/x64-Debug/_deps/sfml-src/CMakeLists.txt:45 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-stxo2r"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-stxo2r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+      CMAKE_OSX_SYSROOT: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-stxo2r'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_63b09
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo   /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_63b09.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_63b09.dir\\ /FS -c "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_63b09.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_63b09.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_63b09.exe /implib:cmTC_63b09.lib /pdb:cmTC_63b09.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckTypeSize.cmake:250 (check_include_file)"
+      - "out/build/x64-Debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "out/build/x64-Debug/_deps/sfml-src/CMakeLists.txt:48 (include)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-96fjst"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-96fjst"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+      CMAKE_OSX_SYSROOT: ""
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-96fjst'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_bcaf9
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo   /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_bcaf9.dir\\CheckIncludeFile.c.obj /FdCMakeFiles\\cmTC_bcaf9.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-96fjst\\CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_bcaf9.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_bcaf9.dir\\CheckIncludeFile.c.obj  /out:cmTC_bcaf9.exe /implib:cmTC_bcaf9.lib /pdb:cmTC_bcaf9.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckTypeSize.cmake:251 (check_include_file)"
+      - "out/build/x64-Debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "out/build/x64-Debug/_deps/sfml-src/CMakeLists.txt:48 (include)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-toonkh"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-toonkh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+      CMAKE_OSX_SYSROOT: ""
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-toonkh'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_cce86
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo   /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_cce86.dir\\CheckIncludeFile.c.obj /FdCMakeFiles\\cmTC_cce86.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-toonkh\\CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_cce86.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_cce86.dir\\CheckIncludeFile.c.obj  /out:cmTC_cce86.exe /implib:cmTC_cce86.lib /pdb:cmTC_cce86.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckTypeSize.cmake:252 (check_include_file)"
+      - "out/build/x64-Debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "out/build/x64-Debug/_deps/sfml-src/CMakeLists.txt:48 (include)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-ic58tt"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-ic58tt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+      CMAKE_OSX_SYSROOT: ""
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-ic58tt'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_cb31c
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo   /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_cb31c.dir\\CheckIncludeFile.c.obj /FdCMakeFiles\\cmTC_cb31c.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-ic58tt\\CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_cb31c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_cb31c.dir\\CheckIncludeFile.c.obj  /out:cmTC_cb31c.exe /implib:cmTC_cb31c.lib /pdb:cmTC_cb31c.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "out/build/x64-Debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "out/build/x64-Debug/_deps/sfml-src/CMakeLists.txt:48 (include)"
+    checks:
+      - "Check size of void*"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-haj8ji"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-haj8ji"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+      CMAKE_OSX_SYSROOT: ""
+    buildResult:
+      variable: "HAVE_SIZEOF_VOID_PTR"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-haj8ji'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_f2454
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo   /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_f2454.dir\\SIZEOF_VOID_PTR.c.obj /FdCMakeFiles\\cmTC_f2454.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-haj8ji\\SIZEOF_VOID_PTR.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_f2454.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_f2454.dir\\SIZEOF_VOID_PTR.c.obj  /out:cmTC_f2454.exe /implib:cmTC_f2454.lib /pdb:cmTC_f2454.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "out/build/x64-Debug/_deps/googletest-src/googletest/cmake/internal_utils.cmake:66 (find_package)"
+      - "out/build/x64-Debug/_deps/googletest-src/googletest/CMakeLists.txt:83 (config_compiler_and_linker)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-77yd3l"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-77yd3l"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-77yd3l'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_6fb36
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_6fb36.dir\\src.c.obj /FdCMakeFiles\\cmTC_6fb36.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-77yd3l\\src.c
+        FAILED: CMakeFiles/cmTC_6fb36.dir/src.c.obj 
+        "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_6fb36.dir\\src.c.obj /FdCMakeFiles\\cmTC_6fb36.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-77yd3l\\src.c
+        D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-77yd3l\\src.c(1): fatal error C1083: Impossible d'ouvrir le fichier include : 'pthread.h' : No such file or directory
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "out/build/x64-Debug/_deps/googletest-src/googletest/cmake/internal_utils.cmake:66 (find_package)"
+      - "out/build/x64-Debug/_deps/googletest-src/googletest/CMakeLists.txt:83 (config_compiler_and_linker)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-9nd5o9"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-9nd5o9"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-9nd5o9'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_0e9b4
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_0e9b4.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_0e9b4.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-9nd5o9\\CheckFunctionExists.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_0e9b4.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_0e9b4.dir\\CheckFunctionExists.c.obj  /out:cmTC_0e9b4.exe /implib:cmTC_0e9b4.lib /pdb:cmTC_0e9b4.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_0e9b4.exe 
+        C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_0e9b4.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_0e9b4.dir\\CheckFunctionExists.c.obj  /out:cmTC_0e9b4.exe /implib:cmTC_0e9b4.lib /pdb:cmTC_0e9b4.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_0e9b4.dir\\CheckFunctionExists.c.obj /out:cmTC_0e9b4.exe /implib:cmTC_0e9b4.lib /pdb:cmTC_0e9b4.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_0e9b4.dir/intermediate.manifest CMakeFiles\\cmTC_0e9b4.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: impossible d'ouvrir le fichier 'pthreads.lib'\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "out/build/x64-Debug/_deps/googletest-src/googletest/cmake/internal_utils.cmake:66 (find_package)"
+      - "out/build/x64-Debug/_deps/googletest-src/googletest/CMakeLists.txt:83 (config_compiler_and_linker)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-lunskq"
+      binary: "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-lunskq"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_OSX_ARCHITECTURES: "x86_64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-lunskq'
+        
+        Run Build Command(s): "D:/visual studio/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_c3d2a
+        [1/2] "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe"  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_c3d2a.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_c3d2a.dir\\ /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\CMakeFiles\\CMakeScratch\\TryCompile-lunskq\\CheckFunctionExists.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_c3d2a.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_c3d2a.dir\\CheckFunctionExists.c.obj  /out:cmTC_c3d2a.exe /implib:cmTC_c3d2a.lib /pdb:cmTC_c3d2a.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_c3d2a.exe 
+        C:\\Windows\\system32\\cmd.exe /C "cd . && "D:\\visual studio\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_c3d2a.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x64\\mt.exe --manifests  -- "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe" /nologo CMakeFiles\\cmTC_c3d2a.dir\\CheckFunctionExists.c.obj  /out:cmTC_c3d2a.exe /implib:cmTC_c3d2a.lib /pdb:cmTC_c3d2a.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_c3d2a.dir\\CheckFunctionExists.c.obj /out:cmTC_c3d2a.exe /implib:cmTC_c3d2a.lib /pdb:cmTC_c3d2a.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c3d2a.dir/intermediate.manifest CMakeFiles\\cmTC_c3d2a.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: impossible d'ouvrir le fichier 'pthread.lib'\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...

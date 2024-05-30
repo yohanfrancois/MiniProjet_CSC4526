@@ -1,0 +1,21 @@
+# ninja log v5
+2	76	7387825191903114	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	e9928c253eccab04
+2	76	7387825191903114	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	e9928c253eccab04
+76	21640	7387825407551687	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	a31f2d0d5ee409a9
+76	21640	7387825407551687	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	a31f2d0d5ee409a9
+21641	21822	0	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	b4d79f0b01920f41
+21641	21822	0	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	b4d79f0b01920f41
+21867	22303	7387825414174836	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	9a91c26a82829dcb
+21867	22303	7387825414174836	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	9a91c26a82829dcb
+22303	22486	7387825415999205	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	1e212b5aa5c06f3e
+22303	22486	7387825415999205	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	1e212b5aa5c06f3e
+22486	22562	7387825416761015	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	67d364c991dfb77
+22486	22562	7387825416761015	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	67d364c991dfb77
+22562	22634	7387825417484300	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	476dd20cece6fe94
+22562	22634	7387825417484300	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	476dd20cece6fe94
+22634	22707	7387825418213892	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	c98408b53985385f
+22634	22707	7387825418213892	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	c98408b53985385f
+22707	22809	7387825419237593	CMakeFiles/sfml-populate-complete	10b35b97112c6873
+22707	22809	7387825419237593	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	10b35b97112c6873
+22707	22809	7387825419237593	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	10b35b97112c6873
+22707	22809	7387825419237593	D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	10b35b97112c6873
