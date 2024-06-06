@@ -41,19 +41,19 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "devel" OR NOT CMAKE_INSTALL_COMPONENT)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE FILE FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/license.md")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/SFML" TYPE FILE FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/license.md")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE FILE FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/readme.md")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/SFML" TYPE FILE FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/readme.md")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./bin" TYPE DIRECTORY FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/extlibs/bin/x64/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE DIRECTORY FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/extlibs/bin/x64/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./lib" TYPE DIRECTORY FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/extlibs/libs-msvc-universal/x64/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE DIRECTORY FILES "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug/_deps/sfml-src/extlibs/libs-msvc-universal/x64/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
