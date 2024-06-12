@@ -10,12 +10,11 @@ Game::Game()
 	, mTimeRemaining(sf::seconds(30.f))
 {	
 	mLightCircle.setRadius(100.f);
-	mLightCircle.setFillColor(sf::Color::Yellow);
 	mLightCircle.setOrigin(mLightCircle.getRadius(), mLightCircle.getRadius());
 
-	mInteractibleTest.setRadius(30.f);
-	mInteractibleTest.setFillColor(sf::Color::Green);
-	mInteractibleTest.setPosition(SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.f);
+	sf::CircleShape interactibleShape(50.f);
+	interactibleShape.setPosition(SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.f);
+	mInteractibleTest = std::make_unique<Interactible>("textures/shark.png", interactibleShape, 1.0f);
 
 
 	// Sprite background
@@ -71,6 +70,10 @@ void Game::update(sf::Time deltaTime)
 		resetTimer();
 		generateLevel();
 	}
+
+	mInteractibleTest->update();
+
+
 }
 
 void Game::render()
@@ -80,7 +83,7 @@ void Game::render()
 	mWindow.draw(sprite);
 
 	// Interactibles 
-	mWindow.draw(mInteractibleTest);
+	mInteractibleTest->draw(mWindow);
 
 	// SHADER
 	sf::Shader shader;
@@ -91,10 +94,10 @@ void Game::render()
 
 	// BLENDMODE
 	sf::BlendMode blendMode(sf::BlendMode::One, sf::BlendMode::OneMinusSrcAlpha);
+
 	sf::RenderStates states;
 	states.shader = &shader;
 	states.blendMode = blendMode;
-
 	// Draw background with light circle
 	mWindow.draw(sprite, states);
 	
