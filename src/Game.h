@@ -33,6 +33,10 @@ private:
 	sf::Clock mClock;
 	sf::Time mTimeRemaining;
 
+	sf::Texture texture;
+	sf::Sprite sprite;
+
+
 };
 
 #endif // GAME_H
