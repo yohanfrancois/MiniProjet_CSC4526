@@ -631,6 +631,12 @@
 },
 {
   "directory": "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug",
+  "command": "\"D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP -DSFML_STATIC -ID:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\src\\. -ID:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\_deps\\sfml-src\\include /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd @src\\CMakeFiles\\src.dir\\Game.cpp.obj.modmap /Fosrc\\CMakeFiles\\src.dir\\Game.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\src\\Game.cpp",
+  "file": "D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\src\\Game.cpp",
+  "output": "src\\CMakeFiles\\src.dir\\Game.cpp.obj"
+},
+{
+  "directory": "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/out/build/x64-Debug",
   "command": "\"D:\\visual studio\\VC\\Tools\\MSVC\\14.39.33519\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP -DSFML_STATIC -ID:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\src\\. -ID:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\out\\build\\x64-Debug\\_deps\\sfml-src\\include /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd @src\\CMakeFiles\\src.dir\\myMain.cpp.obj.modmap /Fosrc\\CMakeFiles\\src.dir\\myMain.cpp.obj /FdTARGET_COMPILE_PDB /FS -c D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\src\\myMain.cpp",
   "file": "D:\\ETUDES\\TSP\\3A\\CSC4526\\MiniProjet\\src\\myMain.cpp",
   "output": "src\\CMakeFiles\\src.dir\\myMain.cpp.obj"

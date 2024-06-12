@@ -2125,6 +2125,15 @@ build mainLauncher\install\local: phony mainLauncher\CMakeFiles\install\local.ut
 
 build cmake_object_order_depends_target_src: phony || cmake_object_order_depends_target_sfml-graphics cmake_object_order_depends_target_sfml-system cmake_object_order_depends_target_sfml-window
 
+build src\CMakeFiles\src.dir\Game.cpp.obj: CXX_COMPILER__src_unscanned_Debug D$:\ETUDES\TSP\3A\CSC4526\MiniProjet\src\Game.cpp || cmake_object_order_depends_target_src
+  DEFINES = -DSFML_STATIC
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd
+  INCLUDES = -ID:\ETUDES\TSP\3A\CSC4526\MiniProjet\src\. -ID:\ETUDES\TSP\3A\CSC4526\MiniProjet\out\build\x64-Debug\_deps\sfml-src\include
+  OBJECT_DIR = src\CMakeFiles\src.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\src.dir
+  TARGET_COMPILE_PDB = src\CMakeFiles\src.dir\src.pdb
+  TARGET_PDB = src\src.pdb
+
 build src\CMakeFiles\src.dir\myMain.cpp.obj: CXX_COMPILER__src_unscanned_Debug D$:\ETUDES\TSP\3A\CSC4526\MiniProjet\src\myMain.cpp || cmake_object_order_depends_target_src
   DEFINES = -DSFML_STATIC
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd
@@ -2142,7 +2151,7 @@ build src\CMakeFiles\src.dir\myMain.cpp.obj: CXX_COMPILER__src_unscanned_Debug D
 #############################################
 # Link the static library src\src.lib
 
-build src\src.lib: CXX_STATIC_LIBRARY_LINKER__src_Debug src\CMakeFiles\src.dir\myMain.cpp.obj || _deps\sfml-build\lib\sfml-graphics-s-d.lib _deps\sfml-build\lib\sfml-system-s-d.lib _deps\sfml-build\lib\sfml-window-s-d.lib
+build src\src.lib: CXX_STATIC_LIBRARY_LINKER__src_Debug src\CMakeFiles\src.dir\Game.cpp.obj src\CMakeFiles\src.dir\myMain.cpp.obj || _deps\sfml-build\lib\sfml-graphics-s-d.lib _deps\sfml-build\lib\sfml-system-s-d.lib _deps\sfml-build\lib\sfml-window-s-d.lib
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = src\CMakeFiles\src.dir

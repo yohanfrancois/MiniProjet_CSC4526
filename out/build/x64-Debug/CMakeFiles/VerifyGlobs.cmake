@@ -5,6 +5,7 @@ cmake_policy(SET CMP0009 NEW)
 # SOURCES at src/CMakeLists.txt:1 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/src/*.cpp")
 set(OLD_GLOB
+  "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/src/Game.cpp"
   "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/src/myMain.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
@@ -15,6 +16,7 @@ endif()
 # SOURCES at src/CMakeLists.txt:1 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/src/*.h")
 set(OLD_GLOB
+  "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/src/Game.h"
   "D:/ETUDES/TSP/3A/CSC4526/MiniProjet/src/myMain.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
