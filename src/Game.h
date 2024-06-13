@@ -23,7 +23,6 @@ private:
 	void generateLevel();
 	void resetTimer();
 	bool isTimeUp() const;
-	bool isInteractibleVisible(const sf::CircleShape& interactible) const;
 
 	const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
 

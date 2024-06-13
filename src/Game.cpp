@@ -14,11 +14,11 @@ Game::Game()
 
 	sf::CircleShape interactibleShape(50.f);
 	interactibleShape.setPosition(SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.f);
-	mInteractibleTest = std::make_unique<Interactible>("textures/shark.png", interactibleShape, 1.0f);
+	mInteractibleTest = std::make_unique<Interactible>("resources/shark.png", interactibleShape, 1.0f);
 
 
 	// Sprite background
-	if (!texture.loadFromFile("textures/background.png")) {
+	if (!texture.loadFromFile("resources/background.png")) {
 		cout << "can't find background";
 	}
 	texture.setSmooth(true);
@@ -87,7 +87,7 @@ void Game::render()
 
 	// SHADER
 	sf::Shader shader;
-	shader.loadFromFile("textures/shader.frag", sf::Shader::Fragment);
+	shader.loadFromFile("resources/shader.frag", sf::Shader::Fragment);
 	sf::Vector2f lightPosition(mLightCircle.getPosition().x, mWindow.getSize().y - mLightCircle.getPosition().y);
 	shader.setUniform("lightPosition", lightPosition);
 	shader.setUniform("lightRadius", mLightCircle.getRadius());
@@ -118,9 +118,4 @@ void Game::resetTimer()
 bool Game::isTimeUp() const
 {
 	return mTimeRemaining <= sf::Time::Zero;
-}
-
-bool Game::isInteractibleVisible(const sf::CircleShape& interactible) const
-{
-	return mLightCircle.getGlobalBounds().intersects(interactible.getGlobalBounds());
 }
