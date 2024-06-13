@@ -6,16 +6,12 @@ using namespace std;
 Game::Game()
 	: mWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Babyssal")
 	, mLightCircle()
-	, mInteractibleTest()
 	, mTimeRemaining(sf::seconds(30.f))
 {	
-	mLightCircle.setRadius(100.f);
+	srand(static_cast<unsigned int>(std::time(nullptr)));
+	
+	mLightCircle.setRadius(150.f);
 	mLightCircle.setOrigin(mLightCircle.getRadius(), mLightCircle.getRadius());
-
-	sf::CircleShape interactibleShape(50.f);
-	interactibleShape.setPosition(SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.f);
-	mInteractibleTest = std::make_unique<Interactible>("resources/shark.png", interactibleShape, 1.0f);
-
 
 	// Sprite background
 	if (!texture.loadFromFile("resources/background.png")) {
@@ -26,6 +22,7 @@ Game::Game()
 	sf::Vector2u textureSize = texture.getSize();
 	sprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
 
+	generateLevel();
 }
 
 void Game::run()
@@ -63,6 +60,17 @@ void Game::update(sf::Time deltaTime)
 {
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(mWindow);
 	mLightCircle.setPosition(static_cast<sf::Vector2f>(mousePosition));
+
+	for (auto& interactible : mInteractibles)
+	{
+		interactible->updateVisibility(mLightCircle);
+		if (interactible->isVisible() && interactible->getVisibilityClock().getElapsedTime().asSeconds() >= interactible->getReactionTime())
+		{
+			interactible->effect();
+			interactible->resetVisibilityClock();
+		}
+	}
+
 	mTimeRemaining -= deltaTime;
 	if (isTimeUp())
 	{
@@ -70,9 +78,6 @@ void Game::update(sf::Time deltaTime)
 		resetTimer();
 		generateLevel();
 	}
-
-	mInteractibleTest->update();
-
 
 }
 
@@ -83,7 +88,10 @@ void Game::render()
 	mWindow.draw(sprite);
 
 	// Interactibles 
-	mInteractibleTest->draw(mWindow);
+	for (auto& interactible : mInteractibles)
+	{
+		interactible->draw(mWindow);
+	}
 
 	// SHADER
 	sf::Shader shader;
@@ -107,7 +115,11 @@ void Game::render()
 
 void Game::generateLevel()
 {
-	// Later
+	mInteractibles.clear();
+	float x = static_cast<float>(std::rand() % SCREEN_WIDTH);
+	float y = static_cast<float>(std::rand() % SCREEN_HEIGHT);
+	mInteractibles.push_back(std::make_unique<Shark>(x, y));
+	cout << "Shark created at " << x << " " << y << endl;
 }
 
 void Game::resetTimer()
@@ -119,3 +131,12 @@ bool Game::isTimeUp() const
 {
 	return mTimeRemaining <= sf::Time::Zero;
 }
+
+bool Game::isInteractibleVisible(sf::CircleShape& hitbox) const
+{
+	sf::Vector2f hitboxPosition = hitbox.getPosition();
+	sf::Vector2f lightPosition = mLightCircle.getPosition();
+	float distance = sqrt(pow(hitboxPosition.x - lightPosition.x, 2) + pow(hitboxPosition.y - lightPosition.y, 2));
+	return distance <= mLightCircle.getRadius();
+}
+

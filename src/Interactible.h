@@ -8,13 +8,22 @@
 class Interactible
 {
 public:
-	Interactible(const std::string& texture_path, sf::CircleShape& hitbox, float reactiontime);
+	Interactible(const std::string& texture_path, const sf::CircleShape& hitbox, float time, float x, float y);
+	virtual ~Interactible() = default;
 	void draw(sf::RenderWindow& window) const;
 	void update();
-private:
+	virtual void effect() = 0;
+	void updateVisibility(sf::CircleShape& lightCircle);
+	bool isVisible() const;
+	float getReactionTime() const;
+	sf::Clock getVisibilityClock() const;
+	void resetVisibilityClock();
+protected:
 	sf::CircleShape hitBoxInteractible;
 	float reactionTime;
 	sf::Texture inter_Texture;
+	bool mIsVisible = false;
+	sf::Clock visibilityClock;
 };
 
 #endif // INTERACTIBLE_H
