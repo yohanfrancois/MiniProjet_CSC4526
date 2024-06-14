@@ -53,11 +53,24 @@ void Game::processEvents()
 	{
 		if (event.type == sf::Event::Closed)
 			mWindow.close();
+		if (event.type == sf::Event::KeyPressed)
+		{
+			if (event.key.code == sf::Keyboard::R && mGameOver == true)
+			{
+				resetTimer();
+				generateLevel();
+			}
+		}
 	}
 }
 
 void Game::update(sf::Time deltaTime)
 {
+	if (mGameOver)
+	{
+		return;
+	}
+	
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(mWindow);
 	mLightCircle.setPosition(static_cast<sf::Vector2f>(mousePosition));
 
@@ -66,7 +79,7 @@ void Game::update(sf::Time deltaTime)
 		interactible->updateVisibility(mLightCircle);
 		if (interactible->isVisible() && interactible->getVisibilityClock().getElapsedTime().asSeconds() >= interactible->getReactionTime())
 		{
-			interactible->effect();
+			interactible->effect(&mEventManager);
 			interactible->resetVisibilityClock();
 		}
 	}
@@ -74,9 +87,12 @@ void Game::update(sf::Time deltaTime)
 	mTimeRemaining -= deltaTime;
 	if (isTimeUp())
 	{
-		std::cout << "Time's up!" << std::endl;
-		resetTimer();
-		generateLevel();
+		mEventManager.endGame();
+	}
+
+	if (mEventManager.isEndGame())
+	{
+		endGame();
 	}
 
 }
@@ -86,6 +102,12 @@ void Game::render()
 	// Clear the window and draw background
 	mWindow.clear();
 	mWindow.draw(sprite);
+
+	if (mGameOver)
+	{
+		gameOverScreen();
+		return;
+	}
 
 	// Interactibles 
 	for (auto& interactible : mInteractibles)
@@ -115,6 +137,8 @@ void Game::render()
 
 void Game::generateLevel()
 {
+	mEventManager.reset();
+	mGameOver = false;
 	mInteractibles.clear();
 	float x = static_cast<float>(std::rand() % SCREEN_WIDTH);
 	float y = static_cast<float>(std::rand() % SCREEN_HEIGHT);
@@ -140,3 +164,22 @@ bool Game::isInteractibleVisible(sf::CircleShape& hitbox) const
 	return distance <= mLightCircle.getRadius();
 }
 
+void Game::endGame() 
+{
+	mGameOver = true;
+}
+
+void Game::gameOverScreen()
+{
+	sf::Font font;
+	font.loadFromFile("resources/font.ttf");
+	sf::Text gameOverText("Game Over", font, 100);
+	gameOverText.setFillColor(sf::Color::Red);
+	gameOverText.setPosition(SCREEN_WIDTH / 2.f - gameOverText.getLocalBounds().width / 2.f, SCREEN_HEIGHT / 2.f - gameOverText.getLocalBounds().height / 2.f);
+	sf::Text restartText("Press R to restart", font, 50);
+	restartText.setFillColor(sf::Color::White);
+	restartText.setPosition(SCREEN_WIDTH / 2.f - restartText.getLocalBounds().width / 2.f, SCREEN_HEIGHT / 2.f + 100.f);
+	mWindow.draw(restartText);
+	mWindow.draw(gameOverText);
+	mWindow.display();
+}

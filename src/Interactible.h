@@ -3,6 +3,7 @@
 #define INTERACTIBLE_H
 
 #include <SFML/Graphics.hpp>
+#include "EventManager.h"
 #include <string>
 
 class Interactible
@@ -12,7 +13,7 @@ public:
 	virtual ~Interactible() = default;
 	void draw(sf::RenderWindow& window) const;
 	void update();
-	virtual void effect() = 0;
+	virtual void effect(EventManager* eventManager) = 0;
 	void updateVisibility(sf::CircleShape& lightCircle);
 	bool isVisible() const;
 	float getReactionTime() const;

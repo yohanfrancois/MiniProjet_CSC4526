@@ -10,7 +10,7 @@ class Shark : public Interactible
 {
 public:
 	Shark(float x, float y) : Interactible(static_cast<std::string>("resources/shark.png"), sf::CircleShape(50.f), 1.f, x, y) {};
-	void effect() override;
+	void effect(EventManager* eventManager) override;
 };
 
 #endif // !SHARK_H
