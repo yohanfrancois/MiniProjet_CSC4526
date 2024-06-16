@@ -13,17 +13,18 @@ Game::Game()
 	mLightCircle.setRadius(150.f);
 	mLightCircle.setOrigin(mLightCircle.getRadius(), mLightCircle.getRadius());
 
-	// Sprite background
+	// Texture background
 	if (!textureBG.loadFromFile("resources/background.png")) {
 		cout << "can't find background";
 	}
 
+	// Texture Eaten
+	if (!lightFishTexture.loadFromFile("resources/lightFish.png")) {
+		cout << "can't find light fish";
+	}
 
-
-	textureBG.setSmooth(true);
-	sprite.setTexture(textureBG);
-	sf::Vector2u textureSize = textureBG.getSize();
-	sprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
+	
+	
 
 	generateLevel();
 }
@@ -69,13 +70,16 @@ void Game::processEvents()
 
 void Game::update(sf::Time deltaTime)
 {
+
+	
+	
+	sf::Vector2i mousePosition = sf::Mouse::getPosition(mWindow);
+	mLightCircle.setPosition(static_cast<sf::Vector2f>(mousePosition));
+
 	if (mGameOver)
 	{
 		return;
 	}
-	
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(mWindow);
-	mLightCircle.setPosition(static_cast<sf::Vector2f>(mousePosition));
 
 	for (auto& interactible : mInteractibles)
 	{
@@ -85,7 +89,7 @@ void Game::update(sf::Time deltaTime)
 			interactible->effect(&mEventManager);
 			interactible->resetVisibilityClock();
 		}
-		interactible->update();
+		interactible->update(deltaTime);
 	}
 
 	mTimeRemaining -= deltaTime;
@@ -93,6 +97,11 @@ void Game::update(sf::Time deltaTime)
 	{
 		mEventManager.endGame();
 	}
+
+	if (mEventManager.isEaten()) {
+		endGameEaten();
+	}
+
 
 	if (mEventManager.isEndGame() || mEventManager.isWinLevel())
 	{
@@ -107,7 +116,7 @@ void Game::render()
 {
 	// Clear the window and draw background
 	mWindow.clear();
-	mWindow.draw(sprite);
+	mWindow.draw(bgSprite);
 
 	if (mEventManager.isEndGame())
 	{
@@ -154,7 +163,7 @@ void Game::render()
 	states.shader = &shader;
 	states.blendMode = blendMode;
 	// Draw background with light circle
-	mWindow.draw(sprite, states);
+	mWindow.draw(bgSprite, states);
 	
 
 	mWindow.display();
@@ -162,26 +171,35 @@ void Game::render()
 
 void Game::generateLevel()
 {
+
+	//Background
+	textureBG.setSmooth(true);
+	bgSprite.setTexture(textureBG);
+	sf::Vector2u textureSize = textureBG.getSize();
+	bgSprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
+
 	mEventManager.reset();
 	mGameOver = false;
 	mInteractibles.clear();
 
 	// Baby
-	int rangeSizex = SCREEN_WIDTH - 1 - offset - offset + 1;
-	int rangeSizey = SCREEN_HEIGHT - 1 - offset - offset + 1;
-	float x = static_cast<float>(std::rand() % rangeSizex);
-	float y = static_cast<float>(std::rand() % rangeSizey);
+	int rangeSizex = SCREEN_WIDTH - 1 - offset;
+	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
+	float x = static_cast<float>((std::rand() % rangeSizex)+offset);
+	float y = static_cast<float>((std::rand() % rangeSizey)+offset);
 	mInteractibles.push_back(std::make_unique<Baby>(x, y));
 
 	// Générer une séquence random d'intéractibles parmi ceux existants et les faire spawn sans overlap entre eux (c'est dur mais un truc approximatif suffirait. Autre problème est 
 	// qu'ils sortent de l'écran parfois mais juste un offset)
 
 	for (int i = 0; i < 2; ++i) {
-		float x = static_cast<float>(std::rand() % rangeSizex);
-		float y = static_cast<float>(std::rand() % rangeSizey);
+		x = static_cast<float>((std::rand() % rangeSizex) + offset);
+		y = static_cast<float>((std::rand() % rangeSizey) + offset);
 		mInteractibles.push_back(std::make_unique<Shark>(x, y));
 	}
-
+	x = static_cast<float>((std::rand() % rangeSizex) + offset);
+	y = static_cast<float>((std::rand() % rangeSizey) + offset);
+	mInteractibles.push_back(std::make_unique<LightFish>(x, y));
 	
 }
 
@@ -237,4 +255,14 @@ void Game::nextLevelScreen() {
 	mWindow.draw(winLevelText);
 	mWindow.draw(winLevelText2);
 	mWindow.display();
+}
+
+void Game::endGameEaten() {
+
+	mInteractibles.clear();
+
+	bgSprite.setTexture(lightFishTexture);
+	sf::Vector2u textureSize = textureBG.getSize();
+	bgSprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
+	endGame();
 }

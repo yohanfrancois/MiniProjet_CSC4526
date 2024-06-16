@@ -11,6 +11,7 @@
 #include "Shark.h"
 #include "EventManager.h"
 #include "Baby.h"
+#include "LightFish.h"
 
 #define SCREEN_WIDTH 1080
 #define SCREEN_HEIGHT 720
@@ -34,7 +35,7 @@ private:
 	bool isInteractibleVisible(sf::CircleShape& hitbox) const;
 	void gameOverScreen();
 	void nextLevelScreen();
-
+	void endGameEaten();
 	const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
 
 	sf::RenderWindow mWindow;
@@ -44,8 +45,10 @@ private:
 	sf::Time mTimeRemaining;
 
 	sf::Texture textureBG;
+	sf::Texture lightFishTexture;
 	sf::Texture textureLL;
-	sf::Sprite sprite;
+
+	sf::Sprite bgSprite;
 
 	EventManager mEventManager;
 	bool mGameOver = false;

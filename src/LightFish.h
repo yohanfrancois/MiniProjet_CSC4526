@@ -5,13 +5,14 @@
 #include "Interactible.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include "Game.h"
 
 class LightFish : public Interactible
 {
 public:
 	LightFish(float x, float y);
 	void effect(EventManager* eventManager) override;
-	void update() override;
+	void update(sf::Time deltaTime) override;
 	bool isLightSource() override;
 
 private:

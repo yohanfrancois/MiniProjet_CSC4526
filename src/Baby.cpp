@@ -18,7 +18,7 @@ void Baby::effect(EventManager* eventManager)
 	eventManager->winLevel();
 }
 
-void Baby::update()
+void Baby::update(sf::Time deltaTime)
 {
     if (isVisible() && unSeen) {
         hitBoxInteractible.setTexture(&inter_Texture);

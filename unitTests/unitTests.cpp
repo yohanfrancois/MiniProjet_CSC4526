@@ -5,6 +5,7 @@
 #include "Shark.h"
 #include "Baby.h"
 #include "LightFish.h"
+#include "Game.h"
 
 // Constructeurs
 
@@ -18,6 +19,25 @@ TEST(Shark, Constructor) {
     EXPECT_EQ(shark->getHitBox().getPosition().y, y);
     EXPECT_NE(shark->getHitBox().getTexture(), nullptr);
 }
+
+TEST(Shark, Rebound) {
+    // Le spawn offset est de sorte à ce que les hitbox les plus grosses dont celle du requin réussissent ce test (mais ça m'embête d'aller le chercher dans game), 2*rayon max 100.C'est l'endroit oû l'ont fait spawn les requins le plus à droite
+    // On ne teste que le côté droit
+    float offset = 100;
+    float x = SCREEN_WIDTH - 1 - offset;
+    float y = 150.0f;
+
+    std::unique_ptr<Shark> shark = std::make_unique<Shark>(x, y);
+
+    EXPECT_EQ(shark->getHitBox().getPosition().x, x);
+    EXPECT_EQ(shark->getHitBox().getPosition().y, y);
+    EXPECT_NE(shark->getHitBox().getTexture(), nullptr);
+
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    EXPECT_EQ(shark->getHitBox().getPosition().x - shark->speed.x + 1, x);
+    EXPECT_EQ(shark->getHitBox().getPosition().y, y);
+}
+
 
 TEST(LightFish, Constructor) {
     float x = 100.0f;
