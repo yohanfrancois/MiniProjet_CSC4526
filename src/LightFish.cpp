@@ -1,7 +1,8 @@
 #include "LightFish.h"
 #include <iostream>
+#include "Game.h"
 
-LightFish::LightFish(float x, float y) : Interactible("resources/Ponyo.png", sf::CircleShape(50.f), 1.f, x, y)
+LightFish::LightFish(float x, float y) : Interactible("resources/lightFish.png", sf::CircleShape(50.f), 0.2f, x, y)
 {
     // Chargement de la texture littleLight
     if (!littleLightTexture.loadFromFile("resources/littleLight.png")) {
@@ -15,15 +16,25 @@ LightFish::LightFish(float x, float y) : Interactible("resources/Ponyo.png", sf:
 void LightFish::effect(EventManager* eventManager)
 {
     std::cout << "lightFish effect" << std::endl;
-    eventManager->winLevel();
+    eventManager->endGame();
 }
 
 void LightFish::update()
 {
+    if (Growing) {
+        hitBoxInteractible.setScale(hitBoxInteractible.getScale() * growthFactor);
+        
+    }
     if (isVisible() && unSeen) {
         hitBoxInteractible.setTexture(&inter_Texture);
         hitBoxInteractible.setTextureRect(sf::IntRect(0, 0, inter_Texture.getSize().x, inter_Texture.getSize().y));
         unSeen = false;
+
+        Growing = true;
+        std::cout << "oui";
+        if (hitBoxInteractible.getPosition().x > SCREEN_WIDTH / 2) {
+            hitBoxInteractible.setScale(-1.f, 1.f);
+        }
     }
     else if (!isVisible() && !unSeen) {
         hitBoxInteractible.setTexture(&littleLightTexture);
@@ -33,5 +44,5 @@ void LightFish::update()
 }
 
 bool LightFish::isLightSource() {
-    return true;
+    return unSeen;
 }
