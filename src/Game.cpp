@@ -6,7 +6,7 @@ using namespace std;
 Game::Game()
 	: mWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Babyssal")
 	, mLightCircle()
-	, mTimeRemaining(sf::seconds(30.f))
+	, mTimer(SECONDS_PER_LEVEL)
 {	
 	srand(static_cast<unsigned int>(std::time(nullptr)));
 	
@@ -61,7 +61,10 @@ void Game::processEvents()
 		{
 			if (event.key.code == sf::Keyboard::R && (mGameOver == true))
 			{
-				resetTimer();
+				mLevel = 1;
+				nbOfLightFish = 1;
+				nbOfSharks = 2;
+				mTimer.setInitialTime(sf::seconds(SECONDS_PER_LEVEL));
 				generateLevel();
 			}
 		}
@@ -92,8 +95,8 @@ void Game::update(sf::Time deltaTime)
 		interactible->update(deltaTime);
 	}
 
-	mTimeRemaining -= deltaTime;
-	if (isTimeUp())
+	mTimer.update(deltaTime);
+	if (mTimer.isTimeUp())
 	{
 		mEventManager.endGame();
 	}
@@ -125,7 +128,8 @@ void Game::render()
 	}
 	if (mEventManager.isWinLevel())
 	{
-		nextLevelScreen();
+		mLevel++;
+		generateLevel();
 		return;
 	}
 
@@ -165,6 +169,8 @@ void Game::render()
 	// Draw background with light circle
 	mWindow.draw(bgSprite, states);
 	
+	//Draw timer
+	mTimer.draw(mWindow);
 
 	mWindow.display();
 }	
@@ -181,36 +187,25 @@ void Game::generateLevel()
 	mEventManager.reset();
 	mGameOver = false;
 	mInteractibles.clear();
+	mTimer.resetTimer();
 
-	// Baby
-	int rangeSizex = SCREEN_WIDTH - 1 - offset;
-	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
-	float x = static_cast<float>((std::rand() % rangeSizex)+offset);
-	float y = static_cast<float>((std::rand() % rangeSizey)+offset);
-	mInteractibles.push_back(std::make_unique<Baby>(x, y));
-
-	// Générer une séquence random d'intéractibles parmi ceux existants et les faire spawn sans overlap entre eux (c'est dur mais un truc approximatif suffirait. Autre problème est 
-	// qu'ils sortent de l'écran parfois mais juste un offset)
-
-	for (int i = 0; i < 2; ++i) {
-		x = static_cast<float>((std::rand() % rangeSizex) + offset);
-		y = static_cast<float>((std::rand() % rangeSizey) + offset);
-		mInteractibles.push_back(std::make_unique<Shark>(x, y));
+	if (mLevel % 3 == 0 && mLevel != 0) {
+		nbOfSharks++;
+		nbOfLightFish++;
+		mTimer.setInitialTime(sf::seconds(mTimer.getInitialTime().asSeconds() / DECREASE_RATIO));
+		cout << mTimer.getInitialTime().asSeconds() << endl;
 	}
-	x = static_cast<float>((std::rand() % rangeSizex) + offset);
-	y = static_cast<float>((std::rand() % rangeSizey) + offset);
-	mInteractibles.push_back(std::make_unique<LightFish>(x, y));
+
+	generateBaby();	
+
+	for (int i = 0; i < nbOfSharks; ++i) {
+		generateShark();
+	}
 	
-}
+	for (int i = 0; i < nbOfLightFish; ++i) {
+		generateLightFish();
+	}
 
-void Game::resetTimer()
-{
-	mTimeRemaining = sf::seconds(30.f);
-}
-
-bool Game::isTimeUp() const
-{
-	return mTimeRemaining <= sf::Time::Zero;
 }
 
 bool Game::isInteractibleVisible(sf::CircleShape& hitbox) const
@@ -265,4 +260,31 @@ void Game::endGameEaten() {
 	sf::Vector2u textureSize = textureBG.getSize();
 	bgSprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
 	endGame();
+}
+
+void Game::generateBaby()
+{
+	int rangeSizex = SCREEN_WIDTH - 1 - offset;
+	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
+	float x = static_cast<float>(std::rand() % rangeSizex);
+	float y = static_cast<float>(std::rand() % rangeSizey);
+	mInteractibles.push_back(std::make_unique<Baby>(x, y));
+}
+
+void Game::generateShark()
+{
+	int rangeSizex = SCREEN_WIDTH - 1 - offset;
+	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
+	float x = static_cast<float>(std::rand() % rangeSizex);
+	float y = static_cast<float>(std::rand() % rangeSizey);
+	mInteractibles.push_back(std::make_unique<Shark>(x, y));
+}
+
+void Game::generateLightFish()
+{
+	int rangeSizex = SCREEN_WIDTH - 1 - offset;
+	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
+	float x = static_cast<float>(std::rand() % rangeSizex);
+	float y = static_cast<float>(std::rand() % rangeSizey);
+	mInteractibles.push_back(std::make_unique<LightFish>(x, y));
 }

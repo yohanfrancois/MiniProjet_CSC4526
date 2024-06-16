@@ -23,6 +23,7 @@ public:
 	sf::CircleShape getHitBox() const;
 	void changeTexture(sf::Texture texture);
 	virtual float trueHitBox();
+	bool instersects(const Interactible& other) const;
 protected:
 	sf::CircleShape hitBoxInteractible;
 	float reactionTime;

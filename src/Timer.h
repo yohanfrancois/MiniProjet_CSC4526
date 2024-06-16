@@ -14,6 +14,8 @@ public:
 	bool isTimeUp() const;
 	void resetTimer();
 	void draw(sf::RenderWindow& window) const;
+	void setInitialTime(sf::Time time) { mInitialTime = time; }
+	sf::Time getInitialTime() { return mInitialTime; }
 private:
 	sf::Time mTimeRemaining;
 	sf::Time mInitialTime;

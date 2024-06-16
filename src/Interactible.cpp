@@ -80,3 +80,8 @@ float Interactible::trueHitBox()
 {
 	return hitBoxInteractible.getRadius();
 }
+
+bool Interactible::instersects(const Interactible& other) const
+{
+	return hitBoxInteractible.getGlobalBounds().intersects(other.getHitBox().getGlobalBounds());
+}

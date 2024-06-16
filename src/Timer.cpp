@@ -30,8 +30,8 @@ void Timer::resetTimer()
 void Timer::draw(sf::RenderWindow& window) const
 {
 	sf::RectangleShape timerBar;
-	timerBar.setSize(sf::Vector2f(SCREEN_WIDTH * mTimeRemaining / mInitialTime, 20));
-	timeBar.setPosition(0, 0);
+	timerBar.setSize(sf::Vector2f(SCREEN_WIDTH * mTimeRemaining.asSeconds() / mInitialTime.asSeconds(), 20));
+	timerBar.setPosition(0, 0);
 	if (mTimeRemaining <= sf::seconds(5))
 	{
 		timerBar.setFillColor(sf::Color::Red);

@@ -12,9 +12,12 @@
 #include "EventManager.h"
 #include "Baby.h"
 #include "LightFish.h"
+#include "Timer.h"
 
 #define SCREEN_WIDTH 1080
 #define SCREEN_HEIGHT 720
+#define SECONDS_PER_LEVEL 30
+#define DECREASE_RATIO 1.1f
 
 class Game
 {
@@ -29,9 +32,10 @@ private:
 	void render();
 
 	void generateLevel();
+	void generateBaby();
+	void generateShark();
+	void generateLightFish();
 	
-	void resetTimer();
-	bool isTimeUp() const;
 	bool isInteractibleVisible(sf::CircleShape& hitbox) const;
 	void gameOverScreen();
 	void nextLevelScreen();
@@ -55,6 +59,12 @@ private:
 
 	float littleLightRadius = 50;
 	int offset = 100;
+	int mLevel = 1;
+
+	int nbOfSharks = 2;
+	int nbOfLightFish = 1;
+
+	Timer mTimer;
 };
 
 #endif // GAME_H
