@@ -12,7 +12,7 @@ public:
 	Interactible(const std::string& texture_path, const sf::CircleShape& hitbox, float time, float x, float y);
 	virtual ~Interactible() = default;
 	void draw(sf::RenderWindow& window) const;
-	virtual void update() = 0;
+	virtual void update(sf::Time deltaTime) = 0;
 	virtual void effect(EventManager* eventManager) = 0;
 	virtual bool isLightSource() { return false; };
 	void updateVisibility(sf::CircleShape& lightCircle);

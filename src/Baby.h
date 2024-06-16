@@ -11,7 +11,7 @@ class Baby : public Interactible
 public:
 	Baby(float x, float y);
 	void effect(EventManager* eventManager) override;
-	void update() override;
+	void update(sf::Time deltaTime) override;
 	bool isLightSource() override;
 	float trueHitBox() override;
 

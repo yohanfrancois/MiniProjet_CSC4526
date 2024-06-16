@@ -8,10 +8,10 @@ void Shark::effect(EventManager* eventManager)
 	eventManager->endGame();
 }
 
-void Shark::update()
+void Shark::update(sf::Time deltaTime)
 {
 
-	if (hitBoxInteractible.getPosition().x > SCREEN_WIDTH - hitBoxInteractible.getRadius() || hitBoxInteractible.getPosition().x < 0 + hitBoxInteractible.getRadius())
+	if (hitBoxInteractible.getPosition().x > SCREEN_WIDTH - 2*hitBoxInteractible.getRadius() || hitBoxInteractible.getPosition().x < 0)
 	{
 		speed = -speed;
 	}
