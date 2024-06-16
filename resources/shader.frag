@@ -6,15 +6,15 @@ void main()
 {
     vec2 fragPosition = gl_FragCoord.xy; 
 
-    float minDistance = 99999.0;
+    float minAlpha = 99999.0;
 
    
     for (int i = 0; i < 10; ++i) { 
         float distance = length(fragPosition - lightPositions[i]);
-        float normalizedDistance = distance / lightRadiuss[i];
-        minDistance = min(minDistance, normalizedDistance);
+        float alpha = distance / lightRadiuss[i];
+        minAlpha = min(minAlpha, alpha);
     }
 
-    //La lumière la plus proche détermine si le pixel est visible
-    gl_FragColor.a = minDistance;
+    //La lumière la plus intense détermine l'alpha du pixel
+    gl_FragColor.a = minAlpha;
 }
