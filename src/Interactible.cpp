@@ -28,8 +28,10 @@ void Interactible::updateVisibility(sf::CircleShape& lightCircle)
 {
 	sf::Vector2f hitboxPosition = hitBoxInteractible.getPosition();
 	sf::Vector2f lightPosition = lightCircle.getPosition();
-	float distance = sqrt(pow(hitboxPosition.x - lightPosition.x, 2) + pow(hitboxPosition.y - lightPosition.y, 2));
-	bool currentlyVisible = distance <= lightCircle.getRadius() - 25.f;
+	float hitboxRadius = hitBoxInteractible.getRadius();
+
+	float distance = sqrt(pow(hitboxPosition.x+hitboxRadius - lightPosition.x, 2) + pow(hitboxPosition.y + hitboxRadius - lightPosition.y, 2));
+	bool currentlyVisible = distance <= trueHitBox();
 	
 	if (currentlyVisible)
 	{
@@ -54,10 +56,6 @@ float Interactible::getReactionTime() const
 	return reactionTime;
 }
 
-void Interactible::update()
-{
-	hitBoxInteractible.setRadius( hitBoxInteractible.getRadius()+0.01f );
-}
 
 sf::Clock Interactible::getVisibilityClock() const
 {
@@ -67,4 +65,18 @@ sf::Clock Interactible::getVisibilityClock() const
 void Interactible::resetVisibilityClock()
 {
 	visibilityClock.restart();
+}
+
+sf::CircleShape Interactible::getHitBox() const{
+	return hitBoxInteractible;
+}
+
+void Interactible::changeTexture(sf::Texture texture)
+{
+	hitBoxInteractible.setTexture(&texture);
+}
+
+float Interactible::trueHitBox()
+{
+	return hitBoxInteractible.getRadius();
 }

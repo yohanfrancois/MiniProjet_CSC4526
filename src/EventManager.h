@@ -8,10 +8,14 @@ public:
 	void endGame() { mEndGame = true; }
 	bool isEndGame() const { return mEndGame; }
 
+	// Baby
+	void winLevel() { mWinLevel = true; }
+	bool isWinLevel() const { return mWinLevel; }
 	// Reset
-	void reset() { mEndGame = false; }
+	void reset() { mEndGame = false; mWinLevel = false; }
 private:
 	bool mEndGame = false;
+	bool mWinLevel = false;
 };
 
 #endif // !EVENTMANAGER_H

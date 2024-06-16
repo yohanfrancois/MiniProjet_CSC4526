@@ -14,12 +14,15 @@ Game::Game()
 	mLightCircle.setOrigin(mLightCircle.getRadius(), mLightCircle.getRadius());
 
 	// Sprite background
-	if (!texture.loadFromFile("resources/background.png")) {
+	if (!textureBG.loadFromFile("resources/background.png")) {
 		cout << "can't find background";
 	}
-	texture.setSmooth(true);
-	sprite.setTexture(texture);
-	sf::Vector2u textureSize = texture.getSize();
+
+
+
+	textureBG.setSmooth(true);
+	sprite.setTexture(textureBG);
+	sf::Vector2u textureSize = textureBG.getSize();
 	sprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
 
 	generateLevel();
@@ -34,7 +37,7 @@ void Game::run()
 	{
 		sf::Time deltaTime = clock.restart();
 		timeSinceLastUpdate += deltaTime;
-
+		render();
 		while (timeSinceLastUpdate > TimePerFrame)
 		{
 			timeSinceLastUpdate -= TimePerFrame;
@@ -42,7 +45,7 @@ void Game::run()
 			update(TimePerFrame);
 		}
 
-		render();
+		
 	}
 }
 
@@ -55,7 +58,7 @@ void Game::processEvents()
 			mWindow.close();
 		if (event.type == sf::Event::KeyPressed)
 		{
-			if (event.key.code == sf::Keyboard::R && mGameOver == true)
+			if (event.key.code == sf::Keyboard::R && (mGameOver == true))
 			{
 				resetTimer();
 				generateLevel();
@@ -82,6 +85,7 @@ void Game::update(sf::Time deltaTime)
 			interactible->effect(&mEventManager);
 			interactible->resetVisibilityClock();
 		}
+		interactible->update();
 	}
 
 	mTimeRemaining -= deltaTime;
@@ -90,10 +94,12 @@ void Game::update(sf::Time deltaTime)
 		mEventManager.endGame();
 	}
 
-	if (mEventManager.isEndGame())
+	if (mEventManager.isEndGame() || mEventManager.isWinLevel())
 	{
 		endGame();
 	}
+
+
 
 }
 
@@ -103,24 +109,43 @@ void Game::render()
 	mWindow.clear();
 	mWindow.draw(sprite);
 
-	if (mGameOver)
+	if (mEventManager.isEndGame())
 	{
 		gameOverScreen();
 		return;
 	}
+	if (mEventManager.isWinLevel())
+	{
+		nextLevelScreen();
+		return;
+	}
+
+	std::vector<sf::Vector2f> lightPositions;
+	std::vector<float> lightRadiuss;
+
+	lightPositions.push_back(sf::Vector2f(mLightCircle.getPosition().x, mWindow.getSize().y - mLightCircle.getPosition().y));
+	lightRadiuss.push_back(mLightCircle.getRadius());
 
 	// Interactibles 
 	for (auto& interactible : mInteractibles)
 	{
+		// Draw
 		interactible->draw(mWindow);
+
+		//Shader Infos
+		if (interactible->isLightSource()) {
+			lightPositions.push_back(sf::Vector2f(interactible->getHitBox().getPosition().x  + interactible->getHitBox().getRadius(), mWindow.getSize().y - interactible->getHitBox().getPosition().y - interactible->getHitBox().getRadius()));
+			lightRadiuss.push_back(interactible->getHitBox().getRadius());
+		}
 	}
 
 	// SHADER
 	sf::Shader shader;
 	shader.loadFromFile("resources/shader.frag", sf::Shader::Fragment);
-	sf::Vector2f lightPosition(mLightCircle.getPosition().x, mWindow.getSize().y - mLightCircle.getPosition().y);
-	shader.setUniform("lightPosition", lightPosition);
-	shader.setUniform("lightRadius", mLightCircle.getRadius());
+
+	// Set shader uniforms
+	shader.setUniformArray("lightPositions", &lightPositions[0], lightPositions.size());
+	shader.setUniformArray("lightRadiuss", &lightRadiuss[0], lightRadiuss.size());
 
 	// BLENDMODE
 	sf::BlendMode blendMode(sf::BlendMode::One, sf::BlendMode::OneMinusSrcAlpha);
@@ -140,10 +165,24 @@ void Game::generateLevel()
 	mEventManager.reset();
 	mGameOver = false;
 	mInteractibles.clear();
-	float x = static_cast<float>(std::rand() % SCREEN_WIDTH);
-	float y = static_cast<float>(std::rand() % SCREEN_HEIGHT);
-	mInteractibles.push_back(std::make_unique<Shark>(x, y));
-	cout << "Shark created at " << x << " " << y << endl;
+
+	// Baby
+	int rangeSizex = SCREEN_WIDTH - 1 - offset - offset + 1;
+	int rangeSizey = SCREEN_HEIGHT - 1 - offset - offset + 1;
+	float x = static_cast<float>(std::rand() % rangeSizex);
+	float y = static_cast<float>(std::rand() % rangeSizey);
+	mInteractibles.push_back(std::make_unique<Baby>(x, y));
+
+	// Générer une séquence random d'intéractibles parmi ceux existants et les faire spawn sans overlap entre eux (c'est dur mais un truc approximatif suffirait. Autre problème est 
+	// qu'ils sortent de l'écran parfois mais juste un offset)
+
+	for (int i = 0; i < 2; ++i) {
+		float x = static_cast<float>(std::rand() % rangeSizex);
+		float y = static_cast<float>(std::rand() % rangeSizey);
+		mInteractibles.push_back(std::make_unique<Shark>(x, y));
+	}
+
+	
 }
 
 void Game::resetTimer()
@@ -181,5 +220,21 @@ void Game::gameOverScreen()
 	restartText.setPosition(SCREEN_WIDTH / 2.f - restartText.getLocalBounds().width / 2.f, SCREEN_HEIGHT / 2.f + 100.f);
 	mWindow.draw(restartText);
 	mWindow.draw(gameOverText);
+	mWindow.display();
+}
+
+void Game::nextLevelScreen() {
+
+	sf::Font font;
+	font.loadFromFile("resources/font.ttf");
+	sf::Text winLevelText("Good Job but ... ", font, 100);
+	sf::Text winLevelText2("there are plenty left ", font, 100);
+	winLevelText.setFillColor(sf::Color::Red);
+	winLevelText.setPosition(SCREEN_WIDTH / 2.f - winLevelText.getLocalBounds().width / 2.f, SCREEN_HEIGHT / 2.f - winLevelText.getLocalBounds().height / 2.f);
+	winLevelText2.setFillColor(sf::Color::Red);
+	winLevelText2.setPosition(SCREEN_WIDTH / 2.f - winLevelText2.getLocalBounds().width / 2.f, SCREEN_HEIGHT / 2.f + 100.f);
+	//Ecrire des statistiques intéressantes (timer, nombre de fish vu, nombre de fish pas vu que sais je)
+	mWindow.draw(winLevelText);
+	mWindow.draw(winLevelText2);
 	mWindow.display();
 }

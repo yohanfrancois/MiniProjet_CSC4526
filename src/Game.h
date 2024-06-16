@@ -10,9 +10,10 @@
 #include "Interactible.h"
 #include "Shark.h"
 #include "EventManager.h"
+#include "Baby.h"
 
-#define SCREEN_WIDTH 1920
-#define SCREEN_HEIGHT 1080
+#define SCREEN_WIDTH 1080
+#define SCREEN_HEIGHT 720
 
 class Game
 {
@@ -27,10 +28,12 @@ private:
 	void render();
 
 	void generateLevel();
+	
 	void resetTimer();
 	bool isTimeUp() const;
 	bool isInteractibleVisible(sf::CircleShape& hitbox) const;
 	void gameOverScreen();
+	void nextLevelScreen();
 
 	const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
 
@@ -40,12 +43,15 @@ private:
 	sf::Clock mClock;
 	sf::Time mTimeRemaining;
 
-	sf::Texture texture;
+	sf::Texture textureBG;
+	sf::Texture textureLL;
 	sf::Sprite sprite;
 
 	EventManager mEventManager;
 	bool mGameOver = false;
 
+	float littleLightRadius = 50;
+	int offset = 100;
 };
 
 #endif // GAME_H
