@@ -15,7 +15,7 @@ public:
 	void resetTimer();
 	void draw(sf::RenderWindow& window) const;
 	void setInitialTime(sf::Time time) { mInitialTime = time; }
-	sf::Time getInitialTime() { return mInitialTime; }
+	sf::Time getInitialTime() const { return mInitialTime; }
 private:
 	sf::Time mTimeRemaining;
 	sf::Time mInitialTime;
