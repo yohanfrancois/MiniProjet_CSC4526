@@ -3,6 +3,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <memory>
 #include <vector>
 #include <random>
@@ -53,6 +54,8 @@ private:
 	sf::Texture textureLL;
 
 	sf::Sprite bgSprite;
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
 
 	EventManager mEventManager;
 	bool mGameOver = false;

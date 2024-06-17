@@ -23,9 +23,11 @@ Game::Game()
 		cout << "can't find light fish";
 	}
 
+	if (!buffer.loadFromFile("resources/sound.mp3")) {
+		cout << "can't find sound";
+	}
+	sound.setBuffer(buffer);
 	
-	
-
 	generateLevel();
 }
 
@@ -128,6 +130,7 @@ void Game::render()
 	}
 	if (mEventManager.isWinLevel())
 	{
+		sound.play();
 		mLevel++;
 		generateLevel();
 		return;
