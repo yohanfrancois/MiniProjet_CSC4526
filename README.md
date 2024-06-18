@@ -30,7 +30,6 @@ La classe `Game` est la classe principale du projet. Elle gère la boucle princi
 2. `void processEvents()`: Fonction qui gère les événements du jeu.
 3. `void update()`: Fonction qui met à jour les éléments du jeu.
 4. `void render()`: Fonction qui dessine les éléments du jeu.
-5. `void handlePlayerInput()`: Fonction qui gère les entrées du joueur.
 
 ### `Interactible`
 
