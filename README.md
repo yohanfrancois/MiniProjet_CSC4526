@@ -1,4 +1,4 @@
-# Projet de Jeu Vidéo en C++ avec SFML
+# Babyssal - Mini-Projet C++/SFML - VAP JIN Télécom SudParis - CSC4526
 
 ## Présentation du Projet
 
