@@ -53,6 +53,10 @@ La classe `LightFish` est une classe dérivée de la classe `Interactible`. Elle
 
 La classe `Shark` est une classe dérivée de la classe `Interactible`. Elle représente un requin qui mange les objets autour de lui.
 
+### `AirBubble`
+
+La classe `AirBubble` est une classe dérivée de la classe `Interactible`. Elle représente une bulle d'air qui rajoute du temps au chronomètre.
+
 ### `Timer`
 
 La classe `Timer` est une classe utilitaire qui gère le temps écoulé dans le jeu.
