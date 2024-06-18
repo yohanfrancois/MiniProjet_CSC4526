@@ -2,15 +2,9 @@
 #include <iostream>
 #include "Game.h"
 
-LightFish::LightFish(float x, float y) : Interactible("resources/lightFish.png", sf::CircleShape(50.f), 0.3f, x, y)
+LightFish::LightFish(float x, float y) : Interactible("resources/littleLight.png", sf::CircleShape(50.f), 0.3f, x, y)
 {
-    // Chargement de la texture littleLight
-    if (!littleLightTexture.loadFromFile("resources/littleLight.png")) {
-        std::cout << "Error: Can't find littleLight.png" << std::endl;
-    }
-    hitBoxInteractible.setTexture(&littleLightTexture);
-    hitBoxInteractible.setTextureRect(sf::IntRect(0, 0, littleLightTexture.getSize().x, littleLightTexture.getSize().y));
-
+    // plus rien 
 }
 
 void LightFish::effect(EventManager* eventManager)
@@ -21,7 +15,7 @@ void LightFish::effect(EventManager* eventManager)
 
 void LightFish::update(sf::Time deltaTime)
 {
-
+    //manger des sharks et disparaitre ?
 }
 
 bool LightFish::isLightSource() {

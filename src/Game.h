@@ -56,8 +56,9 @@ private:
 
 	sf::Sprite bgSprite;
 	sf::SoundBuffer buffer;
-	sf::Sound sound;
-
+	sf::Sound babySound;
+	sf::SoundBuffer endGameEatenbuffer;
+	sf::Sound endGameEatenSound;
 	EventManager mEventManager;
 	bool mGameOver = false;
 
@@ -71,6 +72,7 @@ private:
 	Timer mTimer;
 
 	sf::CircleShape mLightCircle;
+	sf::Shader shader;
 };
 
 #endif // GAME_H

@@ -18,8 +18,6 @@ public:
 private:
 	sf::Texture littleLightTexture;
 	bool unSeen = false;
-	float growthFactor = 1.1;
-	bool Growing = false;
 };
 
 #endif // !LIGHTFISH_H

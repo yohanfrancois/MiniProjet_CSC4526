@@ -49,5 +49,5 @@ void Shark::patrol(sf::Time deltaTime) {
 }
 
 void Shark::hunt(sf::Time deltaTime) {
-	hitBoxInteractible.move(normalize(lightPosition - hitBoxInteractible.getPosition() - sf::Vector2f(1.f,1.f)*hitBoxInteractible.getRadius()) * speed * deltaTime.asSeconds());
+	hitBoxInteractible.move(normalize(lightPosition - hitBoxInteractible.getPosition() - sf::Vector2f(1.f,1.f)*hitBoxInteractible.getRadius()) * abs(speed) * deltaTime.asSeconds());
 }

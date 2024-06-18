@@ -17,17 +17,28 @@ Game::Game()
 	if (!textureBG.loadFromFile("resources/background.png")) {
 		cout << "can't find background";
 	}
+	// Shader
+
+	shader.loadFromFile("resources/shader.frag", sf::Shader::Fragment);
 
 	// Texture Eaten
 	if (!lightFishTexture.loadFromFile("resources/lightFish.png")) {
 		cout << "can't find light fish";
 	}
 
-	if (!buffer.loadFromFile("resources/sound.mp3")) {
-		cout << "can't find sound";
+	// audio
+	if (!buffer.loadFromFile("resources/babySound.mp3")) {
+		cout << "can't find babySound";
 	}
-	sound.setBuffer(buffer);
+	babySound.setBuffer(buffer);
+	babySound.setVolume(20);
 	
+	if (!endGameEatenbuffer.loadFromFile("resources/endGameEatenSound.mp3")) {
+		cout << "can't find endGameEatenSound";
+	}
+	endGameEatenSound.setBuffer(endGameEatenbuffer);
+	endGameEatenSound.setVolume(30);
+
 	generateLevel();
 }
 
@@ -113,8 +124,6 @@ void Game::update(sf::Time deltaTime)
 		endGame();
 	}
 
-
-
 }
 
 void Game::render()
@@ -130,7 +139,7 @@ void Game::render()
 	}
 	if (mEventManager.isWinLevel())
 	{
-		sound.play();
+		babySound.play();
 		mLevel++;
 		generateLevel();
 		return;
@@ -149,6 +158,7 @@ void Game::render()
 		interactible->draw(mWindow);
 
 		//Shader Infos
+
 		if (interactible->isLightSource()) {
 			lightPositions.push_back(sf::Vector2f(interactible->getHitBox().getPosition().x  + interactible->getHitBox().getRadius(), mWindow.getSize().y - interactible->getHitBox().getPosition().y - interactible->getHitBox().getRadius()));
 			lightRadiuss.push_back(interactible->getHitBox().getRadius());
@@ -156,10 +166,8 @@ void Game::render()
 	}
 
 	// SHADER
-	sf::Shader shader;
-	shader.loadFromFile("resources/shader.frag", sf::Shader::Fragment);
 
-	// Set shader uniforms
+	// clear shader possible en créant 2 tableaux de (actuellement 10 max) valeurs par défauts pour lightposition et lightradius ... faut trouver un truc mieux pcq gérer la mémoire du shader ici c'est piteux -> destructeur et constructeur des intéractibles lightsource ce serait le top, avec une initialisation du shader entier vide dans generate level mais après les light sources pourront pas bouger.. hmm 
 	shader.setUniformArray("lightPositions", &lightPositions[0], lightPositions.size());
 	shader.setUniformArray("lightRadiuss", &lightRadiuss[0], lightRadiuss.size());
 
@@ -186,6 +194,8 @@ void Game::generateLevel()
 	bgSprite.setTexture(textureBG);
 	sf::Vector2u textureSize = textureBG.getSize();
 	bgSprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
+	
+
 
 	mEventManager.reset();
 	mGameOver = false;
@@ -258,11 +268,13 @@ void Game::nextLevelScreen() {
 void Game::endGameEaten() {
 
 	mInteractibles.clear();
-
+	mLightCircle.setRadius(mLightCircle.getRadius());
 	bgSprite.setTexture(lightFishTexture);
 	sf::Vector2u textureSize = textureBG.getSize();
 	bgSprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
+	endGameEatenSound.play();
 	endGame();
+	mEventManager.endGame();
 }
 
 void Game::generateBaby()
@@ -291,3 +303,4 @@ void Game::generateLightFish()
 	float y = static_cast<float>(std::rand() % rangeSizey);
 	mInteractibles.push_back(std::make_unique<LightFish>(x, y));
 }
+

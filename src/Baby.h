@@ -5,6 +5,7 @@
 #include "Interactible.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <SFML/Audio.hpp>
 
 class Baby : public Interactible
 {
@@ -19,6 +20,9 @@ private:
 	sf::Texture littleLightTexture;
 	bool unSeen = false;
 	float hitBoxBonus = 20.f;
+
+	sf::SoundBuffer buffer;
+	sf::Sound babySound;
 };
 
 #endif // !BABY_H
