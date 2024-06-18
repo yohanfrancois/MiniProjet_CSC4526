@@ -14,6 +14,6 @@ Ce projet consiste à développer un jeu vidéo en C++ utilisant la bibliothèqu
 
 ## Diagramme de classes
 
-![Diagramme de Classes]('Babssal - Class Diagram.jpeg')
+![Diagramme de Classes](babssal_class_diagram.jpeg)
 
 Le diagramme de classes ci-dessus montre les principales classes et leurs relations dans le projet.
