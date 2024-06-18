@@ -77,7 +77,9 @@ Le dossier `resources` contient tous les fichiers nécessaires au jeu, tels que 
 2. Ajouter des niveaux avec des objectifs différents.
 3. Rendre le jeu plus interactif en ajoutant des mécanismes de jeu supplémentaires.
 4. Ajouter des effets sonores et de la musique pour améliorer l'immersion.
-5. Rendre le jeu plus esthétique en améliorant les graphismes et les animations.
+5. Améliorer la gestion de la mémoire du shader (une classe dédiée ?) -> actuellement problème connu de lumière réminiscente des anciens points lumineux quand on relance des parties
+6. Ajouter des animations
+7. "ralentir" la lampe pour qu'elle ne suive pas exactement le curseur et ai du délai/del'inertie
 
 ## Créateurs
 

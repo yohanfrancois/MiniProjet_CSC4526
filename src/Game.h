@@ -14,6 +14,7 @@
 #include "Baby.h"
 #include "LightFish.h"
 #include "Timer.h"
+#include "AirBubbles.h"
 
 #define SCREEN_WIDTH 1080
 #define SCREEN_HEIGHT 720
@@ -37,7 +38,7 @@ private:
 	void generateBaby();
 	void generateShark();
 	void generateLightFish();
-	
+	void generateAirBubbles();
 	bool isInteractibleVisible(sf::CircleShape& hitbox) const;
 	void gameOverScreen();
 	void nextLevelScreen();

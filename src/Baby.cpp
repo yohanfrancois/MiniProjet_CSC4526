@@ -1,7 +1,7 @@
 #include "Baby.h"
 #include <iostream>
 
-Baby::Baby(float x, float y) : Interactible("resources/Ponyo.png", sf::CircleShape(50.f), 1.f, x, y)
+Baby::Baby(float x, float y) : Interactible("resources/Ponyo.png", sf::CircleShape(50.f), 3.f, x, y)
 {
     // Chargement de la texture littleLight
     if (!littleLightTexture.loadFromFile("resources/littleLight.png")) {

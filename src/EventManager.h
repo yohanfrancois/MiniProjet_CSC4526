@@ -4,19 +4,25 @@
 
 class EventManager {
 public:
-	// Shark
+	// Shark : lose
 	void endGame() { mEndGame = true; }
 	bool isEndGame() const { return mEndGame; }
-
-	// Baby
+	// Baby : win
 	void winLevel() { mWinLevel = true; }
 	bool isWinLevel() const { return mWinLevel; }
-	//LightFish
+	//LightFish : scary lose
 	void endGameEaten(sf::Vector2f pos) { mEndGameEaten = true; endPos = pos; }
-	bool isEaten() { return mEndGameEaten; }
-	sf::Vector2f getEndPos() { return endPos; }
+	bool isEaten() const { return mEndGameEaten; }
+	sf::Vector2f getEndPos() const { return endPos; }
+
+
+
 	// Reset
-	void reset() { mEndGame = false; mWinLevel = false; mEndGameEaten = false; endPos = sf::Vector2f(0, 0);}
+	void reset() { mEndGame = false; mWinLevel = false; mEndGameEaten = false; endPos = sf::Vector2f(0, 0); timeToAdd = 0; }
+
+	//air Bubbles : manipulate time remaining
+	void addTime(float time) { timeToAdd = time; };
+	float getTimeToAdd() const { return timeToAdd; };
 
 private:
 	bool mEndGame = false;
@@ -24,7 +30,7 @@ private:
 	bool mEndGameEaten = false;
 
 	sf::Vector2f endPos;
-
+	float timeToAdd;
 };
 
 #endif // !EVENTMANAGER_H

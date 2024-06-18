@@ -46,3 +46,7 @@ void Timer::draw(sf::RenderWindow& window) const
 	}
 	window.draw(timerBar);
 }
+
+void Timer::addTime(float time) {
+	mTimeRemaining += sf::seconds(time);
+}

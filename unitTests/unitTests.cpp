@@ -33,8 +33,8 @@ TEST(Shark, Rebound) {
     EXPECT_EQ(shark->getHitBox().getPosition().y, y);
     EXPECT_NE(shark->getHitBox().getTexture(), nullptr);
 
-    std::this_thread::sleep_for(std::chrono::seconds(2));
-    EXPECT_EQ(shark->getHitBox().getPosition().x - shark->speed + 1, x);
+    shark->update(sf::seconds(2));
+    EXPECT_EQ(shark->getHitBox().getPosition().x -2* shark-> speed , x);
     EXPECT_EQ(shark->getHitBox().getPosition().y, y);
 }
 
@@ -66,7 +66,6 @@ TEST(Baby, Constructor) {
 
 TEST(Interactible, updateVisibility) {
     sf::Vector2f babyPosition(100.0f, 100.0f);
-    float time = 0.0f; 
 
     std::unique_ptr<Baby> baby = std::make_unique<Baby>(babyPosition.x, babyPosition.y);
     //baby a un rayon de 50

@@ -5,8 +5,8 @@ using namespace std;
 
 Game::Game()
 	: mWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Babyssal")
-	, mLightCircle()
 	, mTimer(SECONDS_PER_LEVEL)
+	, mLightCircle()
 {	
 	srand(static_cast<unsigned int>(std::time(nullptr)));
 	
@@ -65,6 +65,8 @@ void Game::run()
 
 void Game::processEvents()
 {
+
+
 	sf::Event event;
 	while (mWindow.pollEvent(event))
 	{
@@ -97,7 +99,7 @@ void Game::update(sf::Time deltaTime)
 		return;
 	}
 
-	for (auto& interactible : mInteractibles)
+	for (auto const& interactible : mInteractibles)
 	{
 		interactible->updateVisibility(mLightCircle);
 		if (interactible->isVisible() && interactible->getVisibilityClock().getElapsedTime().asSeconds() >= interactible->getReactionTime())
@@ -123,6 +125,13 @@ void Game::update(sf::Time deltaTime)
 	{
 		endGame();
 	}
+
+	if (mEventManager.getTimeToAdd() > 0) {
+		cout << "ajout de temps";
+		mTimer.addTime(mEventManager.getTimeToAdd());
+		mEventManager.addTime(0); //on pourrait aussi reset
+	}
+
 
 }
 
@@ -152,7 +161,7 @@ void Game::render()
 	lightRadiuss.push_back(mLightCircle.getRadius());
 
 	// Interactibles 
-	for (auto& interactible : mInteractibles)
+	for (auto const& interactible : mInteractibles)
 	{
 		// Draw
 		interactible->draw(mWindow);
@@ -210,7 +219,7 @@ void Game::generateLevel()
 	}
 
 	generateBaby();	
-
+	generateAirBubbles();
 	for (int i = 0; i < nbOfSharks; ++i) {
 		generateShark();
 	}
@@ -304,3 +313,11 @@ void Game::generateLightFish()
 	mInteractibles.push_back(std::make_unique<LightFish>(x, y));
 }
 
+void Game::generateAirBubbles()
+{
+	int rangeSizex = SCREEN_WIDTH - 1 - offset;
+	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
+	float x = static_cast<float>(std::rand() % rangeSizex);
+	float y = static_cast<float>(std::rand() % rangeSizey);
+	mInteractibles.push_back(std::make_unique<AirBubbles>(x, y));
+}

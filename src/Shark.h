@@ -16,7 +16,7 @@ public:
     void effect(EventManager* eventManager) override;
     void update(sf::Time deltaTime) override;
     float trueHitBox() override;
-    float speed = 25.f; //public seulement pour les tests Todo getter si modif ailleurs!
+    float speed = 25.f; //public seulement pour simplifier la vie des tests Todo getter si modif ailleurs!
 
 private:
     float hitBoxBonus = 90.f;

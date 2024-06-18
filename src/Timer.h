@@ -16,6 +16,7 @@ public:
 	void draw(sf::RenderWindow& window) const;
 	void setInitialTime(sf::Time time) { mInitialTime = time; }
 	sf::Time getInitialTime() const { return mInitialTime; }
+	void addTime(float time);
 private:
 	sf::Time mTimeRemaining;
 	sf::Time mInitialTime;
