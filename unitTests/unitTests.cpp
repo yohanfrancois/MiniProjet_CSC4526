@@ -34,7 +34,7 @@ TEST(Shark, Rebound) {
     EXPECT_NE(shark->getHitBox().getTexture(), nullptr);
 
     std::this_thread::sleep_for(std::chrono::seconds(2));
-    EXPECT_EQ(shark->getHitBox().getPosition().x - shark->speed.x + 1, x);
+    EXPECT_EQ(shark->getHitBox().getPosition().x - shark->speed + 1, x);
     EXPECT_EQ(shark->getHitBox().getPosition().y, y);
 }
 

@@ -23,6 +23,7 @@
 class Game
 {
 public :
+	
 	Game();
 	void run();
 	void endGame();
@@ -44,7 +45,7 @@ private:
 	const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
 
 	sf::RenderWindow mWindow;
-	sf::CircleShape mLightCircle;
+	
 	std::vector<std::unique_ptr<Interactible>> mInteractibles;
 	sf::Clock mClock;
 	sf::Time mTimeRemaining;
@@ -68,6 +69,8 @@ private:
 	int nbOfLightFish = 1;
 
 	Timer mTimer;
+
+	sf::CircleShape mLightCircle;
 };
 
 #endif // GAME_H

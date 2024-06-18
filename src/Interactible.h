@@ -30,6 +30,8 @@ protected:
 	sf::Texture inter_Texture;
 	bool mIsVisible = false;
 	sf::Clock visibilityClock;
+
+	sf::Vector2f lightPosition;
 };
 
 #endif // INTERACTIBLE_H

@@ -27,7 +27,7 @@ void Interactible::draw(sf::RenderWindow& window) const
 void Interactible::updateVisibility(sf::CircleShape& lightCircle)
 {
 	sf::Vector2f hitboxPosition = hitBoxInteractible.getPosition();
-	sf::Vector2f lightPosition = lightCircle.getPosition();
+	lightPosition = lightCircle.getPosition();
 	float hitboxRadius = hitBoxInteractible.getRadius();
 
 	float distance = sqrt(pow(hitboxPosition.x+hitboxRadius - lightPosition.x, 2) + pow(hitboxPosition.y + hitboxRadius - lightPosition.y, 2));
