@@ -6,7 +6,6 @@ using namespace std;
 Game::Game()
 	: mWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Babyssal")
 	, mTimer(SECONDS_PER_LEVEL)
-	, mLightCircle()
 {	
 	srand(static_cast<unsigned int>(std::time(nullptr)));
 	
@@ -295,8 +294,8 @@ void Game::generateBaby()
 {
 	int rangeSizex = SCREEN_WIDTH - 1 - offset;
 	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
-	float x = static_cast<float>(std::rand() % rangeSizex);
-	float y = static_cast<float>(std::rand() % rangeSizey);
+	auto x = static_cast<float>(std::rand() % rangeSizex);
+	auto y = static_cast<float>(std::rand() % rangeSizey);
 	mInteractibles.push_back(std::make_unique<Baby>(x, y));
 }
 
@@ -304,8 +303,8 @@ void Game::generateShark()
 {
 	int rangeSizex = SCREEN_WIDTH - 1 - offset;
 	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
-	float x = static_cast<float>(std::rand() % rangeSizex);
-	float y = static_cast<float>(std::rand() % rangeSizey);
+	auto x = static_cast<float>(std::rand() % rangeSizex);
+	auto y = static_cast<float>(std::rand() % rangeSizey);
 	mInteractibles.push_back(std::make_unique<Shark>(x, y));
 }
 
@@ -313,8 +312,8 @@ void Game::generateLightFish()
 {
 	int rangeSizex = SCREEN_WIDTH - 1 - offset;
 	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
-	float x = static_cast<float>(std::rand() % rangeSizex);
-	float y = static_cast<float>(std::rand() % rangeSizey);
+	auto x = static_cast<float>(std::rand() % rangeSizex);
+	auto y = static_cast<float>(std::rand() % rangeSizey);
 	mInteractibles.push_back(std::make_unique<LightFish>(x, y));
 }
 
@@ -322,7 +321,7 @@ void Game::generateAirBubbles()
 {
 	int rangeSizex = SCREEN_WIDTH - 1 - offset;
 	int rangeSizey = SCREEN_HEIGHT - 1 - offset;
-	float x = static_cast<float>(std::rand() % rangeSizex);
-	float y = static_cast<float>(std::rand() % rangeSizey);
+	auto x = static_cast<float>(std::rand() % rangeSizex);
+	auto y = static_cast<float>(std::rand() % rangeSizey);
 	mInteractibles.push_back(std::make_unique<AirBubbles>(x, y));
 }

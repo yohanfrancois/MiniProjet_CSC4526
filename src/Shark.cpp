@@ -11,8 +11,8 @@ Shark::Shark(float x, float y)
 
 void Shark::setupFSM() {
 	fsm.add_transitions({
-		{ SharkStates::Patrol, SharkStates::Hunt, SharkTriggers::SeePlayer, [&] { return isVisible(); }, [] { std::cout << "Switching to Hunt mode\n"; } },
-		{ SharkStates::Hunt, SharkStates::Patrol, SharkTriggers::LosePlayer, [&] { return !isVisible(); }, [] { std::cout << "Switching to Patrol mode\n"; } }
+		{ SharkStates::Patrol, SharkStates::Hunt, SharkTriggers::SeePlayer, [this] { return isVisible(); }, [] { std::cout << "Switching to Hunt mode\n"; } },
+		{ SharkStates::Hunt, SharkStates::Patrol, SharkTriggers::LosePlayer, [this] { return !isVisible(); }, [] { std::cout << "Switching to Patrol mode\n"; } }
 		});
 }
 

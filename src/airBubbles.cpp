@@ -7,4 +7,6 @@ void AirBubbles::effect(EventManager* Eventmanager)
 	Eventmanager->addTime(bonusTime);
 }
 
-void AirBubbles::update(sf::Time deltaTime) {}
+void AirBubbles::update(sf::Time deltaTime) {
+//nothing to update yet 
+}

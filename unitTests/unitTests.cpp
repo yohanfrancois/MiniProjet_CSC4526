@@ -13,7 +13,7 @@ TEST(Shark, Constructor) {
     float x = 100.0f;
     float y = 150.0f;
 
-    std::unique_ptr<Shark> shark = std::make_unique<Shark>(x, y);
+    auto shark = std::make_unique<Shark>(x, y);
 
     EXPECT_EQ(shark->getHitBox().getPosition().x, x);
     EXPECT_EQ(shark->getHitBox().getPosition().y, y);
@@ -27,7 +27,7 @@ TEST(Shark, Rebound) {
     float x = SCREEN_WIDTH - 1 - offset;
     float y = 150.0f;
 
-    std::unique_ptr<Shark> shark = std::make_unique<Shark>(x, y);
+    auto shark = std::make_unique<Shark>(x, y);
 
     EXPECT_EQ(shark->getHitBox().getPosition().x, x);
     EXPECT_EQ(shark->getHitBox().getPosition().y, y);
@@ -43,7 +43,7 @@ TEST(LightFish, Constructor) {
     float x = 100.0f;
     float y = 150.0f;
 
-    std::unique_ptr<LightFish> lightfish = std::make_unique<LightFish>(x, y);
+    auto lightfish = std::make_unique<LightFish>(x, y);
 
     EXPECT_EQ(lightfish->getHitBox().getPosition().x, x);
     EXPECT_EQ(lightfish->getHitBox().getPosition().y, y);
@@ -54,7 +54,7 @@ TEST(Baby, Constructor) {
     float x = 100.0f;
     float y = 150.0f;
 
-    std::unique_ptr<Baby> baby = std::make_unique<Baby>(x, y);
+    auto baby = std::make_unique<Baby>(x, y);
 
     EXPECT_EQ(baby->getHitBox().getPosition().x, x);
     EXPECT_EQ(baby->getHitBox().getPosition().y, y);
@@ -67,7 +67,7 @@ TEST(Baby, Constructor) {
 TEST(Interactible, updateVisibility) {
     sf::Vector2f babyPosition(100.0f, 100.0f);
 
-    std::unique_ptr<Baby> baby = std::make_unique<Baby>(babyPosition.x, babyPosition.y);
+    auto baby = std::make_unique<Baby>(babyPosition.x, babyPosition.y);
     //baby a un rayon de 50
     sf::CircleShape lightCircle(10.0f);
     // Le bout du cercle : 2 rayons 
