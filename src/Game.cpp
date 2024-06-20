@@ -18,9 +18,10 @@ Game::Game()
 		cout << "can't find background";
 	}
 	// Shader
-
-	shader.loadFromFile("resources/shader.frag", sf::Shader::Fragment);
-
+	if (!shader.loadFromFile("resources/shader.frag", sf::Shader::Fragment)) {
+		cout << "can't find background";
+	}
+	
 	// Texture Eaten
 	if (!lightFishTexture.loadFromFile("resources/lightFish.png")) {
 		cout << "can't find light fish";
@@ -204,6 +205,10 @@ void Game::generateLevel()
 	sf::Vector2u textureSize = textureBG.getSize();
 	bgSprite.setScale(SCREEN_WIDTH / static_cast<float>(textureSize.x), SCREEN_HEIGHT / static_cast<float>(textureSize.y));
 	
+	//Reload shader
+	if (!shader.loadFromFile("resources/shader.frag", sf::Shader::Fragment)) {
+		cout << "can't find background";
+	}
 
 
 	mEventManager.reset();
